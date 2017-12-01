@@ -104,7 +104,7 @@ public class ImageDaoImpl implements ImageDao {
 		doc = sessionManager.executeReturnDocument(MethodsEnum.LISTER_IMAGES.getLabel(), "cat_id",
 			String.valueOf(categoryId), "per_page", String.valueOf(500));
 	    } else {
-		doc = sessionManager.executeReturnDocument(MethodsEnum.LISTER_IMAGES.getLabel());
+		doc = sessionManager.executeReturnDocument(MethodsEnum.LISTER_IMAGES.getLabel(), "per_page", String.valueOf(500));
 	    }
 	    Element element = (Element) doc.getDocumentElement().getElementsByTagName("images").item(0);
 	    List<Image> images = getImagesFromElement(element);
