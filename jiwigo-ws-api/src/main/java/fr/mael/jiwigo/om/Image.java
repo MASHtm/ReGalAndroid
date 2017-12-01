@@ -217,5 +217,4 @@ public class Image {
     public void setResizedUrl(String resizedUrl) {
         this.resizedUrl = resizedUrl;
     }
-
 }

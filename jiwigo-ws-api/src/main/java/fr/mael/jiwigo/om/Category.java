@@ -183,5 +183,4 @@ public class Category {
     public void setUrlThumbnail(String urlThumbnail) {
         this.urlThumbnail = urlThumbnail;
     }
-
 }
