@@ -81,7 +81,7 @@ public class Album implements Serializable {
 	}
 
 	public void setTitle(String title) {
-		this.title = title;
+		this.title = title.replaceAll("&amp;","&");
 	}
 
 	public String getSummary() {
