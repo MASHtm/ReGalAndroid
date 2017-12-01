@@ -102,7 +102,7 @@ public class ImageDaoImpl implements ImageDao {
 	    Document doc = null;
 	    if (categoryId != null) {
 		doc = sessionManager.executeReturnDocument(MethodsEnum.LISTER_IMAGES.getLabel(), "cat_id",
-			String.valueOf(categoryId));
+			String.valueOf(categoryId), "per_page", String.valueOf(500));
 	    } else {
 		doc = sessionManager.executeReturnDocument(MethodsEnum.LISTER_IMAGES.getLabel());
 	    }
@@ -259,6 +259,9 @@ public class ImageDaoImpl implements ImageDao {
 		Element im = (Element) nodeImage;
 		Image myImage = new Image();
 		myImage.setUrl(im.getAttribute("element_url"));
+		String width = im.getAttribute("width");
+		// assume something not an image ... like GPX ... if width is empty
+		if (width.isEmpty()) { continue; };
 		myImage.setWidth(Integer.valueOf(im.getAttribute("width")));
 		myImage.setHeight(Integer.valueOf(im.getAttribute("height")));
 		myImage.setFile(im.getAttribute("file"));
